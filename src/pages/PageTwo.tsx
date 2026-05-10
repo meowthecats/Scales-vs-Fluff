@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Clock, MapPin, Bone, ThermometerSun, Leaf, Bug, Info, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Clock, MapPin, Bone, ThermometerSun, Leaf, Bug, Info, ArrowRight, Stethoscope, Search } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -294,6 +294,78 @@ export default function PageTwo() {
             </div>
 
           </FadeIn>
+        </div>
+      </section>
+
+      {/* Health & Veterinary Care */}
+      <section className="py-16 md:py-24 border-t border-gray-100 bg-orange-50/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="flex items-center gap-4 mb-12 justify-center">
+              <div className="p-3 bg-white rounded-full shadow-sm">
+                <Stethoscope className="w-8 h-8 text-orange-600" />
+              </div>
+              <h2 className="text-3xl md:text-5xl font-serif text-gray-900">Health & Veterinary Care</h2>
+            </div>
+            <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16">
+              Reptiles hide illness incredibly well as a survival instinct. By the time a bearded dragon looks sick, they are often critically ill. A specialized exotics veterinarian is essential.
+            </p>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <FadeIn delay={0.1}>
+              <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <Search className="w-6 h-6 text-orange-600" />
+                  <h3 className="text-2xl font-serif text-gray-900">Finding the Right Vet</h3>
+                </div>
+                <p className="text-gray-600 mb-6">Standard dog and cat veterinarians rarely have the training required to treat reptiles. You need an Exotics Vet, specifically one with herpetological experience.</p>
+                
+                <h4 className="font-medium text-gray-900 mb-4">Where to Look:</h4>
+                <ul className="space-y-4">
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <strong className="text-gray-900 block">ARAV Directory</strong>
+                      <p className="text-sm text-gray-500 mt-1">The Association of Reptilian and Amphibian Veterinarians (ARAV) provides a "Find a Vet" tool on their website, which is the gold standard.</p>
+                    </div>
+                  </li>
+                  <li className="flex gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
+                    <div>
+                      <strong className="text-gray-900 block">Local Herpetological Societies</strong>
+                      <p className="text-sm text-gray-500 mt-1">Reach out to local reptile rescues or clubs; they often maintain lists of trusted local specialists.</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.2}>
+              <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <Info className="w-6 h-6 text-orange-600" />
+                  <h3 className="text-2xl font-serif text-gray-900">Questions to Ask</h3>
+                </div>
+                <p className="text-gray-600 mb-6">When calling a new clinic, ask these questions to gauge their expertise with bearded dragons:</p>
+                
+                <ul className="space-y-4">
+                  <li className="bg-orange-50/50 p-4 rounded-xl border border-orange-100">
+                    <strong className="text-gray-900 block text-sm mb-1">"Which doctor specializes in reptiles, and what is their background?"</strong>
+                    <p className="text-sm text-gray-600 border-t border-orange-200/50 pt-2 mt-2">Look for board certification (ABVP) in Reptile and Amphibian Practice, or extensive continuing education in herpetology.</p>
+                  </li>
+                  <li className="bg-orange-50/50 p-4 rounded-xl border border-orange-100">
+                    <strong className="text-gray-900 block text-sm mb-1">"Do you perform routine reptile bloodwork and fecal parasite screenings in-house?"</strong>
+                    <p className="text-sm text-gray-600 border-t border-orange-200/50 pt-2 mt-2">These are critical diagnostic tools for dragons, and sending them out delays treatment.</p>
+                  </li>
+                  <li className="bg-orange-50/50 p-4 rounded-xl border border-orange-100">
+                    <strong className="text-gray-900 block text-sm mb-1">"Do you have the equipment to safely anesthetize reptiles?"</strong>
+                    <p className="text-sm text-gray-600 border-t border-orange-200/50 pt-2 mt-2">Reptile physiology is completely different. They require specialized intubation and ventilation.</p>
+                  </li>
+                </ul>
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
