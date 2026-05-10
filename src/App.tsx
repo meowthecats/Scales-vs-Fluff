@@ -21,10 +21,10 @@ const Navigation = () => {
               Overview
             </Link>
             <Link 
-              to="/daily-care" 
-              className={`text-sm font-medium transition-colors ${location.pathname === '/daily-care' ? 'text-emerald-600' : 'text-gray-500 hover:text-gray-900'}`}
+              to="/bearded-dragon" 
+              className={`text-sm font-medium transition-colors ${location.pathname === '/bearded-dragon' ? 'text-orange-600' : 'text-gray-500 hover:text-gray-900'}`}
             >
-              Daily Routines & Gear
+              Bearded Dragon Guide
             </Link>
           </div>
         </div>
@@ -41,7 +41,7 @@ export default function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/daily-care" element={<PageTwo />} />
+            <Route path="/bearded-dragon" element={<PageTwo />} />
           </Routes>
         </main>
       </div>
