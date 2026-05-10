@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import PageTwo from './pages/PageTwo';
+import PageThree from './pages/PageThree';
 
 const Navigation = () => {
   const location = useLocation();
@@ -16,7 +17,7 @@ const Navigation = () => {
           <div className="flex gap-6">
             <Link 
               to="/" 
-              className={`text-sm font-medium transition-colors ${location.pathname === '/' ? 'text-orange-600' : 'text-gray-500 hover:text-gray-900'}`}
+              className={`text-sm font-medium transition-colors ${location.pathname === '/' ? 'text-gray-900' : 'text-gray-500 hover:text-gray-900'}`}
             >
               Overview
             </Link>
@@ -25,6 +26,12 @@ const Navigation = () => {
               className={`text-sm font-medium transition-colors ${location.pathname === '/bearded-dragon' ? 'text-orange-600' : 'text-gray-500 hover:text-gray-900'}`}
             >
               Bearded Dragon Guide
+            </Link>
+            <Link 
+              to="/rabbit" 
+              className={`text-sm font-medium transition-colors ${location.pathname === '/rabbit' ? 'text-emerald-600' : 'text-gray-500 hover:text-gray-900'}`}
+            >
+              Rabbit Guide
             </Link>
           </div>
         </div>
@@ -42,6 +49,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/bearded-dragon" element={<PageTwo />} />
+            <Route path="/rabbit" element={<PageThree />} />
           </Routes>
         </main>
       </div>

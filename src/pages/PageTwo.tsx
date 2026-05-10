@@ -143,9 +143,15 @@ export default function PageTwo() {
                   <h3 className="text-2xl font-serif text-gray-900">Live Feeder Insects</h3>
                 </div>
                 
-                <p className="text-gray-600 mb-6 pb-6 border-b border-gray-100">
-                  <strong className="text-gray-900 block mb-1">Rule of thumb:</strong> Never feed an insect larger than the space between your dragon's eyes to prevent fatal impaction.
-                </p>
+                <div className="mb-6 pb-6 border-b border-gray-100 space-y-4">
+                  <p className="text-gray-600">
+                    <strong className="text-gray-900 block mb-1">Rule of thumb:</strong> Never feed an insect larger than the space between your dragon's eyes to prevent fatal impaction.
+                  </p>
+                  <div className="bg-orange-50 p-4 rounded-xl border border-orange-100">
+                    <strong className="text-orange-900 block mb-1">Feeding Babies (0-6 months)</strong>
+                    <p className="text-sm text-orange-800">Babies require massive amounts of protein to grow rapidly. Feed them live appropriately-sized insects <strong>2 to 3 times per day</strong>. Allow them to eat as many bugs as they want within a 10-15 minute window (this often ranges from 30 to 80 tiny bugs a day).</p>
+                  </div>
+                </div>
 
                 <ul className="space-y-4">
                   <li className="flex gap-3">
@@ -234,11 +240,14 @@ export default function PageTwo() {
       <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="text-center mb-16">
-              <Clock className="w-8 h-8 text-orange-600 mx-auto mb-4" />
-              <h2 className="text-3xl md:text-5xl font-serif text-gray-900 mb-4">A Day in the Life</h2>
-              <p className="text-gray-600">A typical schedule for an adult bearded dragon.</p>
-            </div>
+              <div className="text-center mb-16">
+                <Clock className="w-8 h-8 text-orange-600 mx-auto mb-4" />
+                <h2 className="text-3xl md:text-5xl font-serif text-gray-900 mb-4">A Day in the Life</h2>
+                <p className="text-gray-600 mb-2">A typical schedule for an adult bearded dragon.</p>
+                <div className="inline-block bg-orange-100 text-orange-800 text-sm px-4 py-2 rounded-full font-medium shadow-sm">
+                  Note: Babies (0-6 months) need live insects 2-3 times daily!
+                </div>
+              </div>
             
             <div className="relative border-l-2 border-orange-200 ml-4 md:ml-0 md:space-y-12 space-y-8 pb-4">
               
@@ -322,7 +331,7 @@ export default function PageTwo() {
                 <p className="text-gray-600 mb-6">Standard dog and cat veterinarians rarely have the training required to treat reptiles. You need an Exotics Vet, specifically one with herpetological experience.</p>
                 
                 <h4 className="font-medium text-gray-900 mb-4">Where to Look:</h4>
-                <ul className="space-y-4">
+                <ul className="space-y-4 mb-8">
                   <li className="flex gap-3">
                     <CheckCircle2 className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                     <div>
@@ -338,6 +347,28 @@ export default function PageTwo() {
                     </div>
                   </li>
                 </ul>
+
+                <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 p-5 rounded-2xl border border-orange-200">
+                  <h4 className="text-sm font-bold text-orange-900 mb-2">Find a Reptile Vet Near You</h4>
+                  <p className="text-xs text-orange-800 mb-4">Use the official ARAV locator to find board-certified or experienced herpetological veterinarians in your area.</p>
+                  <form 
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      window.open('https://arav.site-ym.com/search/custom.asp?id=3661', '_blank');
+                    }}
+                    className="flex gap-2"
+                  >
+                    <input 
+                      type="text" 
+                      placeholder="Enter Zip Code" 
+                      required
+                      className="flex-1 w-full px-3 py-2 rounded-xl border border-orange-200 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    />
+                    <button type="submit" className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-xl text-sm font-medium transition-colors whitespace-nowrap shadow-sm hover:shadow">
+                      Search ARAV
+                    </button>
+                  </form>
+                </div>
               </div>
             </FadeIn>
 
@@ -361,6 +392,79 @@ export default function PageTwo() {
                   <li className="bg-orange-50/50 p-4 rounded-xl border border-orange-100">
                     <strong className="text-gray-900 block text-sm mb-1">"Do you have the equipment to safely anesthetize reptiles?"</strong>
                     <p className="text-sm text-gray-600 border-t border-orange-200/50 pt-2 mt-2">Reptile physiology is completely different. They require specialized intubation and ventilation.</p>
+                  </li>
+                </ul>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Montgomery County Local Resources */}
+      <section className="py-16 md:py-24 border-t border-gray-100 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeIn>
+            <div className="flex items-center gap-4 mb-12 justify-center">
+              <div className="p-3 bg-orange-50 rounded-full shadow-sm">
+                <MapPin className="w-8 h-8 text-orange-600" />
+              </div>
+              <h2 className="text-3xl md:text-5xl font-serif text-gray-900 text-center">Montgomery County, MD Resources</h2>
+            </div>
+            <p className="text-xl text-gray-600 text-center max-w-3xl mx-auto mb-16">
+              A curated list of specialized exotic veterinarians and reputable reptile supply stores in and around the Montgomery County area (within a ~25-mile radius).
+            </p>
+          </FadeIn>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Vets */}
+            <FadeIn delay={0.1}>
+              <div className="bg-orange-50/30 p-8 rounded-3xl border border-orange-100 shadow-sm h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <Stethoscope className="w-6 h-6 text-orange-600" />
+                  <h3 className="text-2xl font-serif text-gray-900">Specialized Exotics Vets</h3>
+                </div>
+                <ul className="space-y-6">
+                  <li>
+                    <strong className="text-gray-900 block">Quince Orchard Veterinary Hospital</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Gaithersburg, MD</span>
+                    <p className="text-sm text-gray-600">Highly regarded in Montgomery County for their dedicated exotic animal care team, treating reptiles of all sizes.</p>
+                  </li>
+                  <li>
+                    <strong className="text-gray-900 block">Maryland Avian & Exotics Veterinary Care</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Rockville, MD</span>
+                    <p className="text-sm text-gray-600">Located right in the heart of MoCo, offering dedicated board-certified care for companion exotics including reptiles.</p>
+                  </li>
+                  <li>
+                    <strong className="text-gray-900 block">Stahl Exotic Animal Veterinary Services (SEAVS)</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Fairfax, VA (~25 miles)</span>
+                    <p className="text-sm text-gray-600">One of the premier exclusive exotics-only animal hospitals in the Mid-Atlantic. Worth the drive for specialized surgeries.</p>
+                  </li>
+                </ul>
+              </div>
+            </FadeIn>
+
+            {/* Pet Stores */}
+            <FadeIn delay={0.2}>
+              <div className="bg-orange-50/30 p-8 rounded-3xl border border-orange-100 shadow-sm h-full">
+                <div className="flex items-center gap-3 mb-6">
+                  <Search className="w-6 h-6 text-orange-600" />
+                  <h3 className="text-2xl font-serif text-gray-900">Reptile Stores & Supplies</h3>
+                </div>
+                <ul className="space-y-6">
+                  <li>
+                    <strong className="text-gray-900 block">Mid-Atlantic Reptile Rescue</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Fosters throughout MD</span>
+                    <p className="text-sm text-gray-600 block mb-2">Instead of buying from a big-box store, consider adopting! They frequently rescue bearded dragons in the DMV area that need loving homes.</p>
+                  </li>
+                  <li>
+                    <strong className="text-gray-900 block">House of Tropicals</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Glen Burnie, MD (~25 miles)</span>
+                    <p className="text-sm text-gray-600">A massive legacy store with dedicated reptile staff. Excellent for picking up custom tanks, cork bark, and live feeders.</p>
+                  </li>
+                  <li>
+                    <strong className="text-gray-900 block">Wild Exotics Pet Store</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Local Delivery & Expos</span>
+                    <p className="text-sm text-gray-600">A local favorite for sourcing healthy insects, specialized lighting, and captive-bred reptiles near the Maryland area.</p>
                   </li>
                 </ul>
               </div>
