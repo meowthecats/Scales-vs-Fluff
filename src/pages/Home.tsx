@@ -30,48 +30,50 @@ const ComparisonSection = ({
   icon: Icon, 
   beardieContent, 
   bunnyContent,
-  beardieColor = "orange",
-  bunnyColor = "emerald"
 }: { 
   title: string, 
   icon: any, 
   beardieContent: React.ReactNode, 
   bunnyContent: React.ReactNode,
-  beardieColor?: string,
-  bunnyColor?: string
 }) => {
   return (
-    <section className="py-16 md:py-24 border-b border-gray-100 last:border-0 relative">
+    <section className="py-20 md:py-32 border-b border-gray-100 last:border-0 relative bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <FadeIn>
-          <div className="flex items-center gap-4 mb-12 justify-center">
-            <div className={`p-4 bg-gray-50 rounded-full text-gray-700`}>
+          <div className="flex flex-col items-center gap-5 mb-16 md:mb-20 text-center">
+            <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm text-gray-500">
               <Icon className="w-8 h-8" />
             </div>
-            <h2 className="text-3xl md:text-5xl font-serif text-gray-900">{title}</h2>
+            <h2 className="text-4xl md:text-5xl font-serif text-gray-900 tracking-tight">{title}</h2>
           </div>
         </FadeIn>
         
-        <div className="grid md:grid-cols-2 gap-8 md:gap-16">
-          <FadeIn delay={0.1}>
-            <div className={`bg-${beardieColor}-50/50 rounded-3xl p-8 md:p-12 h-full border border-${beardieColor}-100/50`}>
-              <div className="flex items-center gap-3 mb-6">
-                <ThermometerSun className={`w-6 h-6 text-${beardieColor}-600`} />
-                <h3 className={`text-2xl font-serif text-${beardieColor}-900`}>Bearded Dragon</h3>
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+          {/* Bearded Dragon Column */}
+          <FadeIn delay={0.1} className="h-full">
+            <div className="bg-orange-50/40 rounded-[2.5rem] p-8 md:p-12 h-full border border-orange-100/60 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-4 mb-8 pb-6 border-b border-orange-200/50">
+                <div className="p-3 bg-white rounded-2xl shadow-sm border border-orange-100 text-orange-600">
+                  <ThermometerSun className="w-7 h-7" />
+                </div>
+                <h3 className="text-3xl font-serif text-orange-950">Bearded Dragon</h3>
               </div>
-              <div className={`prose prose-${beardieColor} text-gray-600 prose-headings:font-serif leading-relaxed`}>
+              <div className="prose prose-orange text-gray-600 prose-headings:font-serif prose-headings:text-orange-950 prose-strong:text-orange-900 leading-relaxed text-lg">
                 {beardieContent}
               </div>
             </div>
           </FadeIn>
           
-          <FadeIn delay={0.2}>
-            <div className={`bg-${bunnyColor}-50/50 rounded-3xl p-8 md:p-12 h-full border border-${bunnyColor}-100/50`}>
-              <div className="flex items-center gap-3 mb-6">
-                <Rabbit className={`w-6 h-6 text-${bunnyColor}-600`} />
-                <h3 className={`text-2xl font-serif text-${bunnyColor}-900`}>Rabbit</h3>
+          {/* Rabbit Column */}
+          <FadeIn delay={0.2} className="h-full">
+            <div className="bg-emerald-50/40 rounded-[2.5rem] p-8 md:p-12 h-full border border-emerald-100/60 shadow-sm hover:shadow-md transition-shadow">
+              <div className="flex items-center gap-4 mb-8 pb-6 border-b border-emerald-200/50">
+                <div className="p-3 bg-white rounded-2xl shadow-sm border border-emerald-100 text-emerald-600">
+                  <Rabbit className="w-7 h-7" />
+                </div>
+                <h3 className="text-3xl font-serif text-emerald-950">Rabbit</h3>
               </div>
-              <div className={`prose prose-${bunnyColor} text-gray-600 prose-headings:font-serif leading-relaxed`}>
+              <div className="prose prose-emerald text-gray-600 prose-headings:font-serif prose-headings:text-emerald-950 prose-strong:text-emerald-900 leading-relaxed text-lg">
                 {bunnyContent}
               </div>
             </div>
@@ -101,44 +103,46 @@ const VisualComparisonBar = ({
   const bunnyPercent = Math.min((bunnyValue / max) * 100, 100);
   
   return (
-    <div className="mb-10 last:mb-0">
-      <h4 className="text-lg font-medium text-gray-900 mb-4">{title}</h4>
+    <div className="mb-12 last:mb-0">
+      <h4 className="text-lg font-serif font-medium text-gray-900 mb-5">{title}</h4>
       
-      {/* Beardie Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-3">
-        <div className="w-full sm:w-28 text-sm font-medium text-orange-900 flex items-center gap-2">
-          <ThermometerSun className="w-4 h-4 text-orange-600" /> Beardie
+      <div className="space-y-4">
+        {/* Beardie Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+          <div className="w-full sm:w-32 text-sm font-medium text-orange-950 flex items-center gap-2">
+            <ThermometerSun className="w-4 h-4 text-orange-500" /> Beardie
+          </div>
+          <div className="flex-1 h-6 bg-orange-100/50 rounded-full overflow-hidden relative border border-orange-100">
+            <motion.div 
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-orange-400 to-orange-500 rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${beardiePercent}%` }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              viewport={{ once: true }}
+            />
+          </div>
+          <div className="w-full sm:w-40 text-left sm:text-right text-sm text-gray-600 font-medium">
+            {beardieLabel}
+          </div>
         </div>
-        <div className="flex-1 h-8 bg-orange-50 rounded-full overflow-hidden relative border border-orange-100">
-          <motion.div 
-            className="absolute top-0 left-0 h-full bg-orange-400 rounded-full"
-            initial={{ width: 0 }}
-            whileInView={{ width: `${beardiePercent}%` }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
-          />
-        </div>
-        <div className="w-full sm:w-36 text-left sm:text-right text-sm text-gray-600 font-medium">
-          {beardieLabel}
-        </div>
-      </div>
-      
-      {/* Bunny Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-        <div className="w-full sm:w-28 text-sm font-medium text-emerald-900 flex items-center gap-2">
-          <Rabbit className="w-4 h-4 text-emerald-600" /> Bunny
-        </div>
-        <div className="flex-1 h-8 bg-emerald-50 rounded-full overflow-hidden relative border border-emerald-100">
-          <motion.div 
-            className="absolute top-0 left-0 h-full bg-emerald-400 rounded-full"
-            initial={{ width: 0 }}
-            whileInView={{ width: `${bunnyPercent}%` }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: true }}
-          />
-        </div>
-        <div className="w-full sm:w-36 text-left sm:text-right text-sm text-gray-600 font-medium">
-          {bunnyLabel}
+        
+        {/* Bunny Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
+          <div className="w-full sm:w-32 text-sm font-medium text-emerald-950 flex items-center gap-2">
+            <Rabbit className="w-4 h-4 text-emerald-500" /> Bunny
+          </div>
+          <div className="flex-1 h-6 bg-emerald-100/50 rounded-full overflow-hidden relative border border-emerald-100">
+            <motion.div 
+              className="absolute top-0 left-0 h-full bg-gradient-to-r from-emerald-400 to-emerald-500 rounded-full"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${bunnyPercent}%` }}
+              transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+              viewport={{ once: true }}
+            />
+          </div>
+          <div className="w-full sm:w-40 text-left sm:text-right text-sm text-gray-600 font-medium">
+            {bunnyLabel}
+          </div>
         </div>
       </div>
     </div>
@@ -452,17 +456,17 @@ export default function Home() {
       />
 
       {/* Visual Comparison Chart */}
-      <section className="py-16 md:py-24 border-b border-gray-100 bg-white">
+      <section className="py-20 md:py-32 border-b border-gray-100 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="flex items-center gap-4 mb-12 justify-center">
-              <div className="p-4 bg-gray-50 rounded-full text-gray-700">
+            <div className="flex flex-col items-center gap-5 mb-16 md:mb-20 text-center">
+              <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 shadow-sm text-gray-500">
                 <BarChart3 className="w-8 h-8" />
               </div>
-              <h2 className="text-3xl md:text-5xl font-serif text-gray-900">By The Numbers</h2>
+              <h2 className="text-4xl md:text-5xl font-serif text-gray-900 tracking-tight">By The Numbers</h2>
             </div>
             
-            <div className="bg-white p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm">
+            <div className="bg-white p-8 md:p-14 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/20">
               <VisualComparisonBar 
                 title="Lifespan"
                 beardieValue={15}
@@ -489,45 +493,49 @@ export default function Home() {
               />
             </div>
 
-            <div className="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm mt-8">
-              <h3 className="text-2xl font-serif text-gray-900 mb-6 text-center">Initial Setup Cost Breakdown</h3>
-              <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-8 md:p-14 rounded-[2.5rem] border border-gray-100 shadow-xl shadow-gray-200/20 mt-8">
+              <h3 className="text-3xl font-serif text-gray-900 mb-8 text-center tracking-tight">Initial Setup Cost Breakdown</h3>
+              <div className="grid md:grid-cols-2 gap-8 md:gap-12">
                 {/* Beardie Costs */}
                 <div>
-                  <div className="flex items-center gap-3 mb-4 bg-orange-50 p-4 rounded-2xl border border-orange-100">
-                    <ThermometerSun className="w-5 h-5 text-orange-600" />
-                    <h4 className="font-semibold text-orange-900">Bearded Dragon</h4>
+                  <div className="flex items-center gap-4 mb-6 bg-orange-50/50 p-5 rounded-[1.5rem] border border-orange-100">
+                    <div className="bg-white p-2.5 rounded-xl text-orange-600 shadow-sm border border-orange-100">
+                      <ThermometerSun className="w-5 h-5" />
+                    </div>
+                    <h4 className="font-serif text-xl text-orange-950">Bearded Dragon</h4>
                   </div>
-                  <ul className="space-y-3 text-sm text-gray-600">
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Enclosure (120 Gallon / 4x2x2)</span><span className="font-medium text-gray-900">$250 - $400</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>UVB Lighting (T5 Hood + Bulb)</span><span className="font-medium text-gray-900">$70 - $90</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Heating (Basking lamps, CHE, Thermostats)</span><span className="font-medium text-gray-900">$60 - $120</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Substrate (Tiles, non-adhesive liner)</span><span className="font-medium text-gray-900">$20 - $40</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Initial Food (Insects, greens, supplements)</span><span className="font-medium text-gray-900">$30 - $60</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Accessories (Hides, branches, temp guns)</span><span className="font-medium text-gray-900">$70 - $120</span></li>
-                    <li className="flex justify-between pt-2">
+                  <ul className="space-y-4 text-sm text-gray-600">
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Enclosure (120 Gallon / 4x2x2)</span><span className="font-medium text-gray-900">$250 - $400</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>UVB Lighting (T5 Hood + Bulb)</span><span className="font-medium text-gray-900">$70 - $90</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Heating (Lamps, CHE, Thermostats)</span><span className="font-medium text-gray-900">$60 - $120</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Substrate (Tiles, liner)</span><span className="font-medium text-gray-900">$20 - $40</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Initial Food (Insects, greens)</span><span className="font-medium text-gray-900">$30 - $60</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Accessories (Hides, temp guns)</span><span className="font-medium text-gray-900">$70 - $120</span></li>
+                    <li className="flex justify-between pt-3 text-base">
                       <strong className="text-gray-900">Estimated Total</strong>
-                      <strong className="text-orange-600">~$500 - $830+</strong>
+                      <strong className="text-orange-600 tracking-tight">~$500 - $830+</strong>
                     </li>
                   </ul>
                 </div>
 
                 {/* Bunny Costs */}
                 <div>
-                  <div className="flex items-center gap-3 mb-4 bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
-                    <Rabbit className="w-5 h-5 text-emerald-600" />
-                    <h4 className="font-semibold text-emerald-900">Rabbit</h4>
+                  <div className="flex items-center gap-4 mb-6 bg-emerald-50/50 p-5 rounded-[1.5rem] border border-emerald-100">
+                    <div className="bg-white p-2.5 rounded-xl text-emerald-600 shadow-sm border border-emerald-100">
+                      <Rabbit className="w-5 h-5" />
+                    </div>
+                    <h4 className="font-serif text-xl text-emerald-950">Rabbit</h4>
                   </div>
-                  <ul className="space-y-3 text-sm text-gray-600">
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Enclosure (X-Pen for Home Base)</span><span className="font-medium text-gray-900">$40 - $80</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Litter Box & Safe Bedding</span><span className="font-medium text-gray-900">$30 - $50</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Spay / Neuter Surgery (Varies heavily)</span><span className="font-medium text-gray-900">$150 - $400</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Initial Food (Hay, pellets, bowls, rack)</span><span className="font-medium text-gray-900">$50 - $80</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Accessories (Chew toys, tunnels, grooming)</span><span className="font-medium text-gray-900">$40 - $90</span></li>
-                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Bunny Proofing (Cord covers, grids)</span><span className="font-medium text-gray-900">$30 - $70</span></li>
-                    <li className="flex justify-between pt-2">
+                  <ul className="space-y-4 text-sm text-gray-600">
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Enclosure (X-Pen Home Base)</span><span className="font-medium text-gray-900">$40 - $80</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Litter Box & Safe Bedding</span><span className="font-medium text-gray-900">$30 - $50</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Spay / Neuter Surgery (Varies)</span><span className="font-medium text-gray-900">$150 - $400</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Initial Food (Hay, pellets, bowls)</span><span className="font-medium text-gray-900">$50 - $80</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Accessories (Toys, grooming)</span><span className="font-medium text-gray-900">$40 - $90</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-3"><span>Bunny Proofing (Cord covers)</span><span className="font-medium text-gray-900">$30 - $70</span></li>
+                    <li className="flex justify-between pt-3 text-base">
                       <strong className="text-gray-900">Estimated Total</strong>
-                      <strong className="text-emerald-600">~$340 - $770+</strong>
+                      <strong className="text-emerald-600 tracking-tight">~$340 - $770+</strong>
                     </li>
                   </ul>
                 </div>
@@ -538,23 +546,23 @@ export default function Home() {
       </section>
 
       {/* Pros & Cons Summary */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100">
+      <section className="py-20 md:py-32 bg-gray-50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <FadeIn>
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-serif text-gray-900">Summary: The Final Verdict</h2>
+            <div className="flex flex-col items-center gap-5 mb-16 md:mb-20 text-center">
+              <h2 className="text-4xl md:text-5xl font-serif text-gray-900 tracking-tight">Summary: The Final Verdict</h2>
             </div>
           </FadeIn>
           
-          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             
             {/* Beardie Summary */}
-            <FadeIn delay={0.1}>
-              <div className="space-y-8">
-                <div className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                  <h3 className="text-2xl font-serif text-orange-900 mb-6 flex items-center gap-3">
-                    <ThermometerSun /> Bearded Dragon Pros
-                  </h3>
+            <FadeIn delay={0.1} className="flex flex-col gap-8">
+              <div className="p-8 md:p-10 bg-white rounded-[2.5rem] shadow-sm border border-orange-100 flex-1">
+                <h3 className="text-2xl font-serif text-orange-950 mb-8 flex items-center gap-4 border-b border-orange-100 pb-5">
+                  <div className="p-2.5 bg-orange-50 text-orange-600 rounded-xl"><ThermometerSun className="w-6 h-6" /></div>
+                  Bearded Dragon Pros
+                </h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-orange-400 mt-2.5 flex-shrink-0" />
@@ -575,8 +583,8 @@ export default function Home() {
                   </ul>
                 </div>
 
-                <div className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                  <h3 className="text-2xl font-serif text-gray-900 mb-6 flex items-center gap-3">
+                <div className="p-8 md:p-10 bg-white rounded-[2.5rem] shadow-sm border border-gray-200/60 flex-1">
+                  <h3 className="text-2xl font-serif text-gray-900 mb-8 flex items-center gap-4 border-b border-gray-100 pb-5">
                      Bearded Dragon Cons
                   </h3>
                   <ul className="space-y-3">
@@ -594,16 +602,15 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-              </div>
             </FadeIn>
 
             {/* Bunny Summary */}
-            <FadeIn delay={0.2}>
-              <div className="space-y-8">
-                <div className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                  <h3 className="text-2xl font-serif text-emerald-900 mb-6 flex items-center gap-3">
-                    <Rabbit /> Rabbit Pros
-                  </h3>
+            <FadeIn delay={0.2} className="flex flex-col gap-8">
+              <div className="p-8 md:p-10 bg-white rounded-[2.5rem] shadow-sm border border-emerald-100 flex-1">
+                <h3 className="text-2xl font-serif text-emerald-950 mb-8 flex items-center gap-4 border-b border-emerald-100 pb-5">
+                  <div className="p-2.5 bg-emerald-50 text-emerald-600 rounded-xl"><Rabbit className="w-6 h-6" /></div>
+                  Rabbit Pros
+                </h3>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 mt-2.5 flex-shrink-0" />
@@ -624,8 +631,8 @@ export default function Home() {
                   </ul>
                 </div>
 
-                <div className="p-8 bg-white rounded-3xl shadow-sm border border-gray-100">
-                  <h3 className="text-2xl font-serif text-gray-900 mb-6 flex items-center gap-3">
+                <div className="p-8 md:p-10 bg-white rounded-[2.5rem] shadow-sm border border-gray-200/60 flex-1">
+                  <h3 className="text-2xl font-serif text-gray-900 mb-8 flex items-center gap-4 border-b border-gray-100 pb-5">
                      Rabbit Cons
                   </h3>
                   <ul className="space-y-3">
@@ -647,7 +654,6 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-              </div>
             </FadeIn>
 
           </div>

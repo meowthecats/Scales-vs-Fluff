@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Clock, MapPin, Bone, Leaf, HeartPulse, Info, Stethoscope, Search, ShieldAlert, Carot, Brain, Puzzle, Box, Sprout } from 'lucide-react';
+import { CheckCircle2, Clock, MapPin, Bone, Leaf, HeartPulse, Info, Stethoscope, Search, ShieldAlert, Carot, Brain, Puzzle, Box, Sprout, Home, Droplets } from 'lucide-react';
 
 const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => (
   <motion.div
@@ -88,7 +88,7 @@ export default function PageThree() {
               </div>
             </FadeIn>
             
-            <FadeIn delay={0.2}>
+            <FadeIn delay={0.2} className="lg:col-span-1">
               <div className="bg-yellow-50 rounded-3xl p-8 border border-yellow-200 h-full shadow-sm relative overflow-hidden">
                 <div className="flex items-center gap-3 mb-6">
                   <ShieldAlert className="w-6 h-6 text-yellow-600" />
@@ -110,6 +110,46 @@ export default function PageThree() {
                     <p className="text-sm text-gray-600">Assume most houseplants (like pothos, lilies, aloe) are highly toxic. Elevate them completely.</p>
                   </li>
                 </ul>
+              </div>
+            </FadeIn>
+          </div>
+
+          <div className="mt-8 grid lg:grid-cols-1 gap-8">
+            <FadeIn delay={0.25}>
+              <div className="bg-emerald-800 text-white p-8 rounded-3xl border border-emerald-900 shadow-sm relative overflow-hidden">
+                <h3 className="text-2xl font-serif mb-6 text-emerald-50 text-center">Ideal X-Pen Layout Diagram</h3>
+                <div className="relative border-4 border-dashed border-emerald-600/50 rounded-2xl p-6 md:p-12 min-h-[400px] flex flex-col justify-between items-center bg-emerald-900/40">
+                  <div className="absolute top-4 left-4 bg-emerald-900/80 px-3 py-1 rounded text-sm text-emerald-200 font-medium">Min 4x4 ft (16 sq ft)</div>
+                  
+                  {/* Top left: Litter Box & Hay */}
+                  <div className="absolute top-12 left-12 md:top-16 md:left-24 bg-emerald-700 p-4 rounded-xl border border-emerald-500 shadow-xl w-32 md:w-48 transform -rotate-2">
+                    <Leaf className="w-8 h-8 text-emerald-300 mx-auto mb-2" />
+                    <div className="text-center font-medium text-sm md:text-base">Hay Rack & Litter Box</div>
+                  </div>
+                  
+                  {/* Top Right: Water */}
+                  <div className="absolute top-12 right-12 md:top-20 md:right-32 bg-blue-600 p-4 rounded-full border border-blue-400 shadow-xl w-24 h-24 md:w-32 md:h-32 flex flex-col justify-center items-center">
+                    <Droplets className="w-6 h-6 text-blue-200 mb-1" />
+                    <div className="text-center font-medium text-xs md:text-sm">Heavy Water Bowl</div>
+                  </div>
+
+                  {/* Center */}
+                  <div className="flex-1 flex items-center justify-center pointer-events-none mt-24 md:mt-0 z-0">
+                     <span className="text-emerald-500/30 uppercase tracking-[0.2em] font-bold text-lg md:text-2xl text-center px-4">Soft Puzzle Mats / Rug Area</span>
+                  </div>
+
+                  {/* Bottom Left: Hide/Castle */}
+                  <div className="absolute bottom-12 left-12 md:bottom-20 md:left-32 bg-amber-700/80 p-5 rounded-xl border-2 border-amber-600 shadow-xl w-36 md:w-48 transform rotate-2">
+                    <Home className="w-8 h-8 text-amber-300 mx-auto mb-2" />
+                    <div className="text-center font-medium text-sm md:text-base">Hiding Box / Cardboard Castle</div>
+                  </div>
+
+                  {/* Bottom Right: Toys */}
+                  <div className="absolute bottom-12 right-12 md:bottom-24 md:right-32 flex gap-3 transform -rotate-6">
+                    <div className="bg-orange-500 p-3 rounded-full border border-orange-400 shadow-xl flex items-center justify-center flex-col gap-1 w-16 h-16 md:w-20 md:h-20"><Puzzle className="w-6 h-6 md:w-8 md:h-8 text-white" /></div>
+                    <div className="bg-stone-500 p-3 rounded-full border border-stone-400 shadow-xl flex items-center justify-center flex-col gap-1 w-16 h-16 md:w-20 md:h-20 mt-4"><Box className="w-6 h-6 md:w-8 md:h-8 text-white" /></div>
+                  </div>
+                </div>
               </div>
             </FadeIn>
           </div>
