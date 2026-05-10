@@ -540,28 +540,28 @@ export default function PageThree() {
               </div>
             </FadeIn>
 
-            {/* Pet Stores & Adoptions */}
+            {/* Pet Stores & Purchasing */}
             <FadeIn delay={0.2}>
               <div className="bg-emerald-50/30 p-8 rounded-3xl border border-emerald-100 shadow-sm h-full">
                 <div className="flex items-center gap-3 mb-6">
                   <Search className="w-6 h-6 text-emerald-600" />
-                  <h3 className="text-2xl font-serif text-gray-900">Supplies & Rescue Orgs</h3>
+                  <h3 className="text-2xl font-serif text-gray-900">Where to Buy</h3>
                 </div>
                 <ul className="space-y-6">
                   <li>
-                    <strong className="text-emerald-700 block text-lg mb-1">Friends of Rabbits</strong>
-                    <span className="text-sm text-gray-500 block mb-1">Columbia, MD / DMV Area (~20 miles)</span>
-                    <p className="text-sm text-gray-600">Instead of buying from a pet store, work with this premier rescue organization! They offer bonded pairs, education, and "bunny dating" for your single rabbit.</p>
+                    <strong className="text-emerald-700 block text-lg mb-1">Local ARBA Breeders</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Local MD/VA Area (e.g. Burriss Bunnies, Annie's Holland Lops)</span>
+                    <p className="text-sm text-gray-600">The safest way to purchase a live rabbit is through an ethical breeder registered with the American Rabbit Breeders Association (ARBA), many of which operate farms within 30 miles of MoCo.</p>
                   </li>
                   <li>
-                    <strong className="text-gray-900 block">Montgomery County Animal Services</strong>
-                    <span className="text-sm text-gray-500 block mb-1">Derwood, MD</span>
-                    <p className="text-sm text-gray-600">The local county shelter always has adoptable rabbits who are already spayed/neutered and desperately need homes.</p>
+                    <strong className="text-gray-900 block">Tractor Supply Co & Local Feed Stores</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Mt. Airy / Damascus / Woodbine (~20-25 miles)</span>
+                    <p className="text-sm text-gray-600">Agricultural stores bordering the county often sell live rabbits, especially during the spring "Chick & Bunny Days" seasons.</p>
                   </li>
                   <li>
-                    <strong className="text-gray-900 block">Independent Pet Shops & Feed Stores</strong>
-                    <span className="text-sm text-gray-500 block mb-1">MoCo Area</span>
-                    <p className="text-sm text-gray-600">Look for local shops that stock Oxbow or Science Selective brands. Buying timothy hay locally in bulk from farm feed stores saves significant money over standard chain pet stores.</p>
+                    <strong className="text-gray-900 block">Independent Pet & Supply Shops</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Surrounding MD areas</span>
+                    <p className="text-sm text-gray-600">While big chain pet stores no longer sell live rabbits, some smaller independent pet shops in Frederick or Howard County occasionally carry them, though adopting from local county shelters is always highly encouraged!</p>
                   </li>
                 </ul>
               </div>

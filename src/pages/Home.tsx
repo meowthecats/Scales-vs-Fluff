@@ -472,14 +472,6 @@ export default function Home() {
                 max={15}
               />
               <VisualComparisonBar 
-                title="Initial Setup Cost (Estimates)"
-                beardieValue={500}
-                bunnyValue={300}
-                beardieLabel="~$500+"
-                bunnyLabel="~$300+ & Spay/Neuter"
-                max={600}
-              />
-              <VisualComparisonBar 
                 title="Minimum Space Needed"
                 beardieValue={8}
                 bunnyValue={32}
@@ -495,6 +487,51 @@ export default function Home() {
                 bunnyLabel="4+ hours"
                 max={6}
               />
+            </div>
+
+            <div className="bg-white p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm mt-8">
+              <h3 className="text-2xl font-serif text-gray-900 mb-6 text-center">Initial Setup Cost Breakdown</h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Beardie Costs */}
+                <div>
+                  <div className="flex items-center gap-3 mb-4 bg-orange-50 p-4 rounded-2xl border border-orange-100">
+                    <ThermometerSun className="w-5 h-5 text-orange-600" />
+                    <h4 className="font-semibold text-orange-900">Bearded Dragon</h4>
+                  </div>
+                  <ul className="space-y-3 text-sm text-gray-600">
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Enclosure (120 Gallon / 4x2x2)</span><span className="font-medium text-gray-900">$250 - $400</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>UVB Lighting (T5 Hood + Bulb)</span><span className="font-medium text-gray-900">$70 - $90</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Heating (Basking lamps, CHE, Thermostats)</span><span className="font-medium text-gray-900">$60 - $120</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Substrate (Tiles, non-adhesive liner)</span><span className="font-medium text-gray-900">$20 - $40</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Initial Food (Insects, greens, supplements)</span><span className="font-medium text-gray-900">$30 - $60</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Accessories (Hides, branches, temp guns)</span><span className="font-medium text-gray-900">$70 - $120</span></li>
+                    <li className="flex justify-between pt-2">
+                      <strong className="text-gray-900">Estimated Total</strong>
+                      <strong className="text-orange-600">~$500 - $830+</strong>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Bunny Costs */}
+                <div>
+                  <div className="flex items-center gap-3 mb-4 bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+                    <Rabbit className="w-5 h-5 text-emerald-600" />
+                    <h4 className="font-semibold text-emerald-900">Rabbit</h4>
+                  </div>
+                  <ul className="space-y-3 text-sm text-gray-600">
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Enclosure (X-Pen for Home Base)</span><span className="font-medium text-gray-900">$40 - $80</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Litter Box & Safe Bedding</span><span className="font-medium text-gray-900">$30 - $50</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Spay / Neuter Surgery (Varies heavily)</span><span className="font-medium text-gray-900">$150 - $400</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Initial Food (Hay, pellets, bowls, rack)</span><span className="font-medium text-gray-900">$50 - $80</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Accessories (Chew toys, tunnels, grooming)</span><span className="font-medium text-gray-900">$40 - $90</span></li>
+                    <li className="flex justify-between border-b border-gray-50 pb-2"><span>Bunny Proofing (Cord covers, grids)</span><span className="font-medium text-gray-900">$30 - $70</span></li>
+                    <li className="flex justify-between pt-2">
+                      <strong className="text-gray-900">Estimated Total</strong>
+                      <strong className="text-emerald-600">~$340 - $770+</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </FadeIn>
         </div>

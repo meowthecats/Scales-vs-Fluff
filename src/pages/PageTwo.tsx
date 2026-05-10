@@ -443,28 +443,28 @@ export default function PageTwo() {
               </div>
             </FadeIn>
 
-            {/* Pet Stores */}
+            {/* Pet Stores & Breeders */}
             <FadeIn delay={0.2}>
               <div className="bg-orange-50/30 p-8 rounded-3xl border border-orange-100 shadow-sm h-full">
                 <div className="flex items-center gap-3 mb-6">
                   <Search className="w-6 h-6 text-orange-600" />
-                  <h3 className="text-2xl font-serif text-gray-900">Reptile Stores & Supplies</h3>
+                  <h3 className="text-2xl font-serif text-gray-900">Where to Buy</h3>
                 </div>
                 <ul className="space-y-6">
                   <li>
-                    <strong className="text-gray-900 block">Mid-Atlantic Reptile Rescue</strong>
-                    <span className="text-sm text-gray-500 block mb-1">Fosters throughout MD</span>
-                    <p className="text-sm text-gray-600 block mb-2">Instead of buying from a big-box store, consider adopting! They frequently rescue bearded dragons in the DMV area that need loving homes.</p>
+                    <strong className="text-gray-900 block">Congressional Aquarium</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Rockville, MD (Within MoCo - 0 miles)</span>
+                    <p className="text-sm text-gray-600">While primarily fish, they have an established exotic/reptile section and frequently sell juvenile bearded dragons and supplies right in Montgomery County.</p>
                   </li>
                   <li>
                     <strong className="text-gray-900 block">House of Tropicals</strong>
-                    <span className="text-sm text-gray-500 block mb-1">Glen Burnie, MD (~25 miles)</span>
-                    <p className="text-sm text-gray-600">A massive legacy store with dedicated reptile staff. Excellent for picking up custom tanks, cork bark, and live feeders.</p>
+                    <span className="text-sm text-gray-500 block mb-1">Glen Burnie, MD (~28 miles)</span>
+                    <p className="text-sm text-gray-600">A massive legacy store with a dedicated, expansive reptile department. Excellent place to purchase live captive-bred bearded dragons and full tank setups.</p>
                   </li>
                   <li>
-                    <strong className="text-gray-900 block">Wild Exotics Pet Store</strong>
-                    <span className="text-sm text-gray-500 block mb-1">Local Delivery & Expos</span>
-                    <p className="text-sm text-gray-600">A local favorite for sourcing healthy insects, specialized lighting, and captive-bred reptiles near the Maryland area.</p>
+                    <strong className="text-gray-900 block">Mid-Atlantic Reptile Expos</strong>
+                    <span className="text-sm text-gray-500 block mb-1">Various locations (Often w/in 30-40 miles)</span>
+                    <p className="text-sm text-gray-600 block mb-2">Check schedules for nearby reptile expos in Maryland/Virginia. Shows are the absolute best place to buy directly from specialized local breeders who produce the healthiest dragons.</p>
                   </li>
                 </ul>
               </div>
